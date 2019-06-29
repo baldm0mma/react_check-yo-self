@@ -23,6 +23,7 @@ class TaskCreator extends Component {
       isCompleted: false
     };
     this.setState({ todoList: [...this.state.todoList, todo] });
+    this.resetInputs();
   };
 
   createTaskList = e => {
@@ -30,11 +31,26 @@ class TaskCreator extends Component {
     const newTaskList = {
       title: this.state.taskTitle,
       isUrgent: false,
-      todoList: this.state.todoList
-    }
+      todoList: this.state.todoList,
+      id: Date.now()
+    };
     this.props.addTask(newTaskList);
-    
+    this.resetState();
+  };
+
+  resetInputs = () => {
+    this.setState({
+      taskContent: ''
+    });
   }
+
+  resetState = () => {
+    this.setState({
+      taskTitle: '',
+      taskContent: '',
+      todoList: []
+    });
+  };
 
   render() {
     return (
@@ -54,7 +70,7 @@ class TaskCreator extends Component {
           onChange={this.handleChange}
         />
         <button onClick={this.addToList}>+</button>
-        <button onClick={this.props.addTask}>Make Task List</button>
+        <button onClick={this.createTaskList}>Make Task List</button>
       </aside>
     );
   }

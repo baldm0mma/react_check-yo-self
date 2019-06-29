@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
+import TaskCreator from './TaskCreator';
+import TaskTable from './TaskTable';
 
 class App extends Component {
   constructor() {
@@ -10,16 +12,16 @@ class App extends Component {
   }
 
   addTask = (task) => {
-    this.setState({ task: [...this.state.tasks, task] });
+    this.setState({ tasks: [...this.state.tasks, task] });
   }
 
   render() {
     return(
       <main>
-        <HeaderSearch />
+        {/* <HeaderSearch /> */}
         <section>
-          <TaskCreator />
-          <TaskTable />
+          <TaskCreator addTask={ this.addTask } />
+          <TaskTable tasks={ this.state.tasks } />
         </section>
       </main>
     );
