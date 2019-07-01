@@ -1,14 +1,20 @@
 import React from 'react';
-import './Todo.css';
+import './App.css';
 
-const Todo = ({ todo }) => {
-
-  return(
+const Todo = ({ todo, taskId, toggleCompletion }) => {
+  const buttonText = todo.isCompleted ? 'Completed' : 'NOT completed';
+  return (
     <div>
-      <input type='checkbox'></input>
+      <button
+        className='ui button'
+        type='checkbox'
+        onClick={() => toggleCompletion(taskId, todo.id)}
+      >
+        {buttonText}
+      </button>
       <p>{todo.content}</p>
     </div>
   );
-}
+};
 
 export default Todo;

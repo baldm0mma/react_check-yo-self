@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './TaskCreator.css';
+import './App.css';
 
 class TaskCreator extends Component {
   constructor() {
@@ -42,7 +42,7 @@ class TaskCreator extends Component {
     this.setState({
       taskContent: ''
     });
-  }
+  };
 
   resetState = () => {
     this.setState({
@@ -54,7 +54,7 @@ class TaskCreator extends Component {
 
   render() {
     return (
-      <aside>
+      <aside className='ui input'>
         <input
           label='Task Title'
           name='taskTitle'
@@ -69,8 +69,8 @@ class TaskCreator extends Component {
           placeholder='Please enter a todo'
           onChange={this.handleChange}
         />
-        <button onClick={this.addToList}>+</button>
-        <button onClick={this.createTaskList}>Make Task List</button>
+        <button className='ui button' onClick={this.addToList}>Add Todo</button>
+        <button className='ui button' onClick={this.createTaskList}>Make Task List</button>
       </aside>
     );
   }

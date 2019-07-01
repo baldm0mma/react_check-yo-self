@@ -1,3 +1,39 @@
 * {
   border: 1px red solid;
+  box-sizing: border-box;
+}
+
+.main-section {
+  display: flex;
+}
+
+aside {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  padding: 25px;
+  height: 600px;
+}
+
+.card-table {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 4;
+}
+
+.task-card {
+  width: 20%;
+  display: flex;
+  border: 1px #CACBCD solid;
+  flex-direction: column;
+  margin: 20px;
+  height: 200px;
+}
+
+header {
+  display: flex;
+}
+
+input {
+  height: 50px;
 }
